@@ -1,0 +1,418 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🔥 VIRUS HOAX — AGAMNESIA 🔥</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace; user-select: none; }
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 420px;
+            width: 100%;
+            background: #0d0d0d;
+            border: 3px solid #ff0000;
+            border-radius: 20px;
+            padding: 24px 20px 28px;
+            box-shadow: 0 0 60px rgba(255,0,0,0.3), inset 0 0 40px rgba(255,0,0,0.1);
+            animation: pulse 1.5s infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 40px rgba(255,0,0,0.2); }
+            100% { box-shadow: 0 0 80px rgba(255,0,0,0.6); }
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,0,0,0.03) 2px, rgba(255,0,0,0.03) 4px);
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+        .header .skull {
+            font-size: 60px;
+            display: block;
+            animation: shake 0.5s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: rotate(-5deg) scale(1); }
+            100% { transform: rotate(5deg) scale(1.1); }
+        }
+        .header h1 {
+            color: #ff0000;
+            font-size: 32px;
+            font-weight: 900;
+            text-shadow: 0 0 30px rgba(255,0,0,0.5);
+            letter-spacing: 3px;
+            margin-top: 4px;
+        }
+        .header p {
+            color: #ff4444;
+            font-size: 14px;
+            animation: blink 0.8s infinite alternate;
+        }
+        @keyframes blink {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .virus-box {
+            background: #1a0505;
+            border: 2px solid #ff2222;
+            border-radius: 14px;
+            padding: 18px 14px;
+            margin: 14px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .virus-box .line {
+            color: #ff4444;
+            font-size: 14px;
+            font-family: monospace;
+            padding: 3px 0;
+            border-bottom: 1px solid #2a0a0a;
+        }
+        .virus-box .line:last-child {
+            border-bottom: none;
+        }
+        .virus-box .red { color: #ff0000; font-weight: bold; }
+        .virus-box .green { color: #00ff88; }
+        .virus-box .yellow { color: #ffaa00; }
+        .pin-box {
+            background: #0a0505;
+            border: 2px solid #ff4444;
+            border-radius: 14px;
+            padding: 16px;
+            margin: 14px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .pin-box label {
+            color: #ff8888;
+            font-size: 13px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .pin-box input {
+            width: 100%;
+            padding: 14px;
+            background: #1a0a0a;
+            border: 2px solid #440000;
+            border-radius: 12px;
+            color: #0f0;
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: 8px;
+            outline: none;
+            font-weight: bold;
+        }
+        .pin-box input:focus {
+            border-color: #ff0000;
+            box-shadow: 0 0 25px rgba(255,0,0,0.2);
+        }
+        .pin-box .pin-hint {
+            color: #888;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 8px;
+        }
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #cc0000, #660000);
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: 0.1s;
+            position: relative;
+            z-index: 1;
+            border-bottom: 4px solid #330000;
+        }
+        .btn:active {
+            transform: scale(0.96);
+            border-bottom-width: 2px;
+        }
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .log-box {
+            background: #0a0505;
+            border-left: 4px solid #ff0000;
+            padding: 12px 14px;
+            max-height: 120px;
+            overflow-y: auto;
+            font-size: 12px;
+            color: #b0b0b0;
+            border-radius: 6px;
+            border: 1px solid #2a0a0a;
+            margin-top: 14px;
+            position: relative;
+            z-index: 1;
+            font-family: monospace;
+        }
+        .log-box .success { color: #00ff88; }
+        .log-box .error { color: #ff4444; }
+        .log-box .info { color: #44aaff; }
+        .log-box .warn { color: #ffaa00; }
+        .footer {
+            margin-top: 16px;
+            border-top: 1px solid #1a0a0a;
+            padding-top: 12px;
+            text-align: center;
+            color: #444;
+            font-size: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer span { color: #880000; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #880000; border-radius: 10px; }
+        .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,0,0,0.03) 3px, rgba(255,0,0,0.03) 6px);
+            z-index: 0;
+        }
+        .countdown {
+            color: #ff4444;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 8px;
+            animation: blink 0.5s infinite alternate;
+        }
+        .dana-box {
+            background: #0a0a1a;
+            border: 1px solid #2a2a4a;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .dana-box .dana-label {
+            color: #4488ff;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .dana-box .dana-number {
+            color: #66aaff;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-family: monospace;
+        }
+        .dana-box .dana-status {
+            color: #00ff88;
+            font-size: 13px;
+            font-weight: bold;
+            animation: blink 0.6s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="glitch"></div>
+
+    <div class="header">
+        <span class="skull">☠️</span>
+        <h1>🔥 VIRUS HOAX 🔥</h1>
+        <p>⚠️ SISTEM TERINFEKSI — JANGAN TUTUP ⚠️</p>
+    </div>
+
+    <div class="virus-box">
+        <div class="line red">☠️ VIRUS: AGAMNESIA_DESTROYER</div>
+        <div class="line yellow">🔥 STATUS: MAMPUS LU ANJING 😹</div>
+        <div class="line green">💀 TARGET: +62 857-8651-7553</div>
+        <div class="line red">🔒 LOCK: PIN AGAM — WAJIB DIISI!</div>
+    </div>
+
+    <div class="dana-box">
+        <div class="dana-label">💳 TF KE DANA (BUAT BUG NOMOR)</div>
+        <div class="dana-number">0858 1506 0276</div>
+        <div class="dana-status">⚡ BUG AKTIF — WAJIB TF ⚡</div>
+    </div>
+
+    <div class="pin-box">
+        <label>🔐 MASUKKAN PIN AGAM (WAJIB!)</label>
+        <input type="password" id="pinInput" placeholder="●●●●●●" maxlength="6" inputmode="numeric">
+        <div class="pin-hint">⚠️ PIN SALAH = VIRUS AKTIF PERMANEN</div>
+    </div>
+
+    <button class="btn" id="unlockBtn">🔥 BUKA LOCK 🔥</button>
+
+    <div class="countdown" id="countdown">⏳ SISA WAKTU: 60 DETIK</div>
+
+    <div class="log-box" id="logBox">
+        <div class="warn">☠️ VIRUS DIAKTIFKAN — JANGAN TUTUP!</div>
+        <div class="info">🔒 LOCK PIN AGAM — WAJIB DIISI</div>
+        <div class="info">💳 TF DANA: 085815060276</div>
+    </div>
+
+    <div class="footer">
+        <span>☠️ AGAMNESIA — BOT BY AGAMNESIA</span>
+    </div>
+</div>
+
+<script>
+    // ============================================================
+    // KONFIGURASI
+    // ============================================================
+    const PIN_BENAR = "123456";  // PIN AGAM
+    const DANA_NUMBER = "085815060276";
+    const TARGET_PHONE = "+6285786517553";
+
+    let timeLeft = 60;
+    let isLocked = true;
+    let timerInterval = null;
+    let virusActivated = false;
+
+    // ============================================================
+    // ELEMEN
+    // ============================================================
+    const pinInput = document.getElementById('pinInput');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const logBox = document.getElementById('logBox');
+    const countdownEl = document.getElementById('countdown');
+
+    // ============================================================
+    // LOG
+    // ============================================================
+    function logMessage(msg, cls = '') {
+        const div = document.createElement('div');
+        if (cls) div.className = cls;
+        div.textContent = msg;
+        logBox.appendChild(div);
+        logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    // ============================================================
+    // COUNTDOWN
+    // ============================================================
+    function startCountdown() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = `⏳ SISA WAKTU: ${timeLeft} DETIK`;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                countdownEl.textContent = '💀 WAKTU HABIS — VIRUS AKTIF!';
+                activateVirus();
+            }
+        }, 1000);
+    }
+
+    // ============================================================
+    // VIRUS AKTIF
+    // ============================================================
+    function activateVirus() {
+        if (virusActivated) return;
+        virusActivated = true;
+        logMessage('💀 VIRUS AKTIF — MAMPUS LU ANJING!', 'error');
+        logMessage('🔥 SEMUA DATA TERHAPUS (HOAX)', 'error');
+        logMessage('📱 BUG NOMOR AKTIF: ' + TARGET_PHONE, 'warn');
+        logMessage('💳 TF KE DANA: ' + DANA_NUMBER + ' — WAJIB!', 'warn');
+        document.body.style.backgroundColor = '#0a0000';
+        document.querySelector('.container').style.borderColor = '#ff0000';
+        document.querySelector('.container').style.boxShadow = '0 0 100px rgba(255,0,0,0.8)';
+        unlockBtn.disabled = true;
+        pinInput.disabled = true;
+        // Play efek
+        for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+                document.querySelector('.container').style.transform = `rotate(${Math.random() * 6 - 3}deg)`;
+            }, i * 100);
+        }
+        // Kirim notifikasi ke Telegram (opsional)
+        // sendTelegram('💀 VIRUS HOAX AKTIF — TARGET: ' + TARGET_PHONE);
+    }
+
+    // ============================================================
+    // UNLOCK
+    // ============================================================
+    unlockBtn.addEventListener('click', function() {
+        const pin = pinInput.value.trim();
+        if (!pin) {
+            logMessage('❌ MASUKKAN PIN DULU!', 'error');
+            return;
+        }
+        if (pin === PIN_BENAR) {
+            logMessage('✅ PIN BENAR! LOCK DIBUKA!', 'success');
+            logMessage('🎉 SELAMAT — VIRUS DINONAKTIFKAN', 'success');
+            isLocked = false;
+            clearInterval(timerInterval);
+            countdownEl.textContent = '✅ LOCK TERBUKA — AMAN';
+            unlockBtn.disabled = true;
+            pinInput.disabled = true;
+            document.querySelector('.container').style.borderColor = '#00ff88';
+            document.querySelector('.container').style.boxShadow = '0 0 60px rgba(0,255,0,0.3)';
+            logMessage('💳 TF DANA: ' + DANA_NUMBER + ' — TERIMA KASIH BOS!', 'warn');
+        } else {
+            logMessage('❌ PIN SALAH! COBA LAGI!', 'error');
+            logMessage('⚠️ PERCOBAAN: ' + (Math.floor(Math.random() * 5) + 1) + 'x', 'warn');
+            pinInput.value = '';
+            pinInput.focus();
+            // Efek geter
+            document.querySelector('.pin-box').style.borderColor = '#ff0000';
+            setTimeout(() => {
+                document.querySelector('.pin-box').style.borderColor = '#ff4444';
+            }, 300);
+        }
+    });
+
+    // ============================================================
+    // ENTER KEY
+    // ============================================================
+    pinInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            unlockBtn.click();
+        }
+    });
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    startCountdown();
+    logMessage('🔒 PIN AGAM: 123456 (RAHASIA!)', 'info');
+    logMessage('💳 TF DANA: ' + DANA_NUMBER + ' — BUG AKTIF', 'warn');
+    logMessage('⏳ SEGERA MASUKKAN PIN!', 'warn');
+
+    console.log('🔥 AGAMNESIA VIRUS HOAX — PIN: 123456');
+    console.log('💳 DANA: ' + DANA_NUMBER);
+    console.log('📱 TARGET: ' + TARGET_PHONE);
+</script>
+</body>
+</html>
